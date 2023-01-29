@@ -1,0 +1,82 @@
+.search-input {
+	// Caching the current selector
+	$this: &;
+
+	position: relative;
+
+	width: 80%;
+	height: 40px;
+
+	margin: 20px 0;
+	padding: 0 20px;
+
+	input[type='text'] {
+		position: absolute;
+
+		width: 100%;
+
+		border: none;
+		box-shadow: none;
+
+		background: transparent;
+
+		font-size: 16px;
+
+		&:focus + #{$this}-label {
+			opacity: 0;
+			transform: translateY(-35px);
+		}
+
+		&:focus ~ #{$this}-border:before {
+			transform: scaleX(1);
+			transform-origin: left;
+			transition: transform 500ms ease-in-out;
+		}
+	}
+
+	&-label {
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 20px;
+
+		pointer-events: none;
+		transition: 500ms;
+	}
+
+	&-border {
+		position: absolute;
+		display: block;
+		bottom: 0;
+		left: 20px;
+
+		width: 100%;
+		height: 2px;
+
+		background-color: #757589;
+
+		&:before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			width: 100%;
+			height: 100%;
+
+			background-color: #c9c9e8;
+
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 500ms ease-in-out;
+		}
+	}
+}
+
+.search-input-icon {
+	align-items: center;
+	justify-content: center;
+	margin-left: 20px;
+	font-size: 20px;
+	color: #c9c9e8;
+}
