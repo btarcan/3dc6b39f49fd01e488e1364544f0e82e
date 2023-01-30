@@ -1,30 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import SearchInput from './components/SearchInput'
+import Table from './components/Table'
 
-import SearchInput from './components/SearchInput';
-import Table from './components/Table';
-
-import { Users } from './data/users';
+import { Users } from './data/users'
 
 const App = () => {
-	const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('')
 
-	const searchKeys = ['name', 'policy'];
+  const searchKeys = ['name', 'policy']
 
-	const search = (data) => {
-		return data.filter((item) => searchKeys.some((key) => item[key].toLowerCase().includes(query)));
-	};
+  const search = data => {
+    return data.filter(item =>
+      searchKeys.some(key => item[key].toLowerCase().includes(query))
+    )
+  }
 
-	const onChange = (value) => setQuery(value);
+  const onChange = value => {
+    setQuery(value)
+  }
 
-	return (
-		<div className='container'>
-			<div className='row bg-primary-dark-3'>
-				<SearchInput onChange={onChange} />
-			</div>
+  return (
+    <div className="container">
+      <div className="row bg-primary-dark-3">
+        <SearchInput onChange={onChange} />
+      </div>
 
-			<div className='row'>{query ? <Table data={search(Users)} /> : 'No Data'}</div>
-		</div>
-	);
-};
+      <div className="row">
+        <Table data={search(Users)} />
+      </div>
+    </div>
+  )
+}
 
-export default App;
+export default App
