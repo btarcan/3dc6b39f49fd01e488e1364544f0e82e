@@ -33,6 +33,10 @@
 			transform-origin: left;
 			transition: transform 500ms ease-in-out;
 		}
+		
+		&:not(:placeholder-shown) + #{$this}-label {
+			display: none;
+		}
 	}
 
 	&-label {

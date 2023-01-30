@@ -17,6 +17,7 @@ const SearchInput = ({ onChange }) => {
           type="text"
           className="text-secondary-light-1"
           onChange={(e) => getValue(e)}
+          placeholder=" "
         />
         <label className="search-input-label text-secondary-dark-4">
           SEARCH (Client Name / Policy Number)
